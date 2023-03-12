@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Header from "./Header";
 
+import News from './News';
 
 
 export default function Home() {
@@ -16,7 +17,11 @@ export default function Home() {
             <CssBaseline />
             < Header />
             <Container maxWidth="sm">
-                <Box sx={{ height: '100vh' }} />
+                <Box sx={{ height: '100vh' }} >
+                    <News category="teste" />
+
+                </Box>
+
             </Container>
         </React.Fragment>
     )
