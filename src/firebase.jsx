@@ -5,14 +5,7 @@ import { getAnalytics } from "firebase/analytics";
 require('dotenv').config();
 
 
-const firebaseApiKey = process.env.firebaseApiKey;
-const firebaseAuthDomain = process.env.firebaseAuthDomain;
-const firebaseProjectId = process.env.firebaseProjectId;
-const firebaseStorageBucket = process.env.firebaseStorageBucket;
-const firebaseMessagingSenderId = process.env.firebaseMessagingSenderId;
-const firebaseAppId = process.env.firebaseAppId;
-const firebaseMeasurementId = process.env.firebaseMeasurementId;
-  
+
 const firebaseConfig = {
     apiKey: firebaseApiKey,
     authDomain: firebaseAuthDomain,
