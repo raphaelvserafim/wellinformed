@@ -10,7 +10,6 @@ import Avatar from '@mui/material/Avatar';
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
-import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
@@ -41,7 +40,7 @@ export default function ReviewCard(props) {
 
     return (
         <Card sx={{ mb: 2 }}>
-            <CardHeader avatar={<Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">{props.news.item.data.author}</Avatar>}
+            <CardHeader avatar={<Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">R</Avatar>}
                 action={<IconButton aria-label="settings"> <MoreVertIcon /> </IconButton>}
                 title={props.news.item.data.author}
                 subheader={props.news.item.data.posted}

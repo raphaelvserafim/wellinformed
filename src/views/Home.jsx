@@ -6,7 +6,6 @@ import Header from "./Header";
 
 import News from './News';
 
-
 export default function Home() {
     useEffect(() => {
         document.title = "Título da página";
@@ -16,12 +15,10 @@ export default function Home() {
         <React.Fragment>
             <CssBaseline />
             < Header />
-            <Container maxWidth="sm">
-                <Box sx={{ height: '100vh' }} >
+            <Container maxWidth="sm" sx={{ paddingTop: "45px" }}>
+                <Box   >
                     <News category="teste" />
-
                 </Box>
-
             </Container>
         </React.Fragment>
     )
