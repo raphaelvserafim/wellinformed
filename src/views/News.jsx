@@ -1,22 +1,35 @@
-import { React, useState } from "react";
+import React, { useState, useEffect } from "react";
 import Box from '@mui/material/Box';
-
 import ReviewCard from "./ReviewCard";
+import { collection, doc, setDoc, getDocs, where, query } from "firebase/firestore";
+import { db } from "../firebase";
 
-export default function News(props) {
 
-    const [newsItems, setNewsItems] = useState([
-        { title: "noticia 01", category: props.category },
-        { title: "noticia 02", category: props.category },
-        { title: "noticia 03", category: props.category }
-    ]);
+function News(props) {
+
+    const [newsItems, setNewsItems] = useState([]);
+
+    useEffect(() => {
+        async function fetchNews() {
+            const dataNews = [];
+            const q = query(collection(db, "News"), where("main", "==", true));
+            const news = await getDocs(q);
+            news.forEach((doc) => {
+                dataNews.push({ id: doc.id, data: doc.data() });
+            });
+            setNewsItems(dataNews);
+        }
+        fetchNews();
+    }, []);
 
     return (
         <Box sx={{ mb: 2 }}>
             <div style={{ height: '20px' }} />
             {newsItems.map((item, index) => (
-                <ReviewCard data={{ author: "Raphael" }} />
+                <ReviewCard news={{ item }} />
             ))}
         </Box>
     );
 }
+
+export default News;

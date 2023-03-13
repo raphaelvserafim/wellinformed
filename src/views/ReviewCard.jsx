@@ -41,18 +41,14 @@ export default function ReviewCard(props) {
 
     return (
         <Card sx={{ mb: 2 }}>
-            <CardHeader avatar={<Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">{props.data.author}</Avatar>}
+            <CardHeader avatar={<Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">{props.news.item.data.author}</Avatar>}
                 action={<IconButton aria-label="settings"> <MoreVertIcon /> </IconButton>}
-                title={props.data.author}
-                subheader="September 14, 2016"
+                title={props.news.item.data.author}
+                subheader={props.news.item.data.posted}
             />
-            <CardMedia component="img" height="194" image="https://www.reuters.com/resizer/IB-7FK2vh26kCTMRdgOMNUL4dss=/1200x0/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/5RZQQAG4MJIFRGVUJFGK7KUVG4.jpg" alt="Paella dish" />
+            <CardMedia component="img" height="194" image={props.news.item.data.img} alt={props.news.item.data.title} />
             <CardContent>
-                <Typography variant="body2" color="text.secondary">
-                    This impressive paella is a perfect party dish and a fun meal to cook
-                    together with your guests. Add 1 cup of frozen peas along with the mussels,
-                    if you like.
-                </Typography>
+                <Typography variant="body2" color="text.secondary">{props.news.item.data.description}</Typography>
             </CardContent>
             <CardActions disableSpacing>
                 <IconButton aria-label="share">
