@@ -10,8 +10,7 @@ import ListItemText from '@mui/material/ListItemText';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import FeedIcon from '@mui/icons-material/Feed';
-
-import { collection, doc, setDoc, getDocs, where, query } from "firebase/firestore";
+import { collection, getDocs, query } from "firebase/firestore";
 import { db } from "../firebase";
 
 export default function TemporaryDrawer() {
