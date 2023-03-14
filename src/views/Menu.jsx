@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState, useEffect } from "react";
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
@@ -13,13 +13,29 @@ import MailIcon from '@mui/icons-material/Mail';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 
+import { collection, doc, setDoc, getDocs, where, query } from "firebase/firestore";
+import { db } from "../firebase";
+
 export default function TemporaryDrawer() {
-  const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
-  });
+
+  const [menusItems, setMenuItems] = useState([]);
+
+  useEffect(() => {
+    const fetchMenu = async () => {
+      const dataMenus = [];
+      const q = query(collection(db, "Menu"));
+      const menus = await getDocs(q);
+      menus.forEach((doc) => {
+        dataMenus.push({ id: doc.id });
+      });
+      setMenuItems(dataMenus);
+    }
+
+    fetchMenu();
+  }, []);
+
+  const [state, setState] = React.useState({ left: false });
+
   const toggleDrawer = (anchor, open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
@@ -33,7 +49,7 @@ export default function TemporaryDrawer() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       {/* <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+                {menusItems.map((text, index) => (
                     <ListItem key={text} disablePadding>
                         <ListItemButton>
                             <ListItemIcon>
@@ -59,8 +75,6 @@ export default function TemporaryDrawer() {
   );
 
   return (
-
-
     <React.Fragment key='left'>
       <IconButton onClick={toggleDrawer('left', true)}
         size="large"
@@ -69,7 +83,6 @@ export default function TemporaryDrawer() {
         aria-label="menu"
         sx={{ mr: 2 }}
       >
-
         <MenuIcon />
       </IconButton>
       <Drawer
@@ -80,6 +93,5 @@ export default function TemporaryDrawer() {
         {list('left')}
       </Drawer>
     </React.Fragment>
-
   );
 }

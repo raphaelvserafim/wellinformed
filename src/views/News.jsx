@@ -6,9 +6,7 @@ import { db } from "../firebase";
 
 
 function News(props) {
-
     const [newsItems, setNewsItems] = useState([]);
-
     useEffect(() => {
         async function fetchNews() {
             const dataNews = [];
