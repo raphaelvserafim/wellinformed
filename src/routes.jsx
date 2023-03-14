@@ -5,10 +5,14 @@ import CircularProgress from '@mui/material/CircularProgress';
 import { auth, onAuthStateChanged } from './firebase';
 
 const Home = React.lazy(() => import("./views/Home"));
+const ReadTheNews = React.lazy(() => import("./views/ReadTheNews"));
+
+
 // const Register = React.lazy(() => import("./views/Register"));
 // const Login = React.lazy(() => import("./views/Login"));
 // const Dashboard = React.lazy(() => import("./views/Dashboard"));
- const NotFound = React.lazy(() => import("./views/404"));
+
+const NotFound = React.lazy(() => import("./views/404"));
 
 function PrivateRoute({ component: Component, ...rest }) {
 
@@ -42,10 +46,14 @@ function PrivateRoute({ component: Component, ...rest }) {
 }
 
 export default function Routes() {
+    const url = window.location.href;
+    const match = url.match(/\/news\/(.+)/);
+    const newsId = match ? match[1] : null;
+
     return (
         <Router>
             <Home path="/" />
-
+            <ReadTheNews path="/news/:id" newsId={newsId} />
             {/* <PrivateRoute path="/dashboard" component={Dashboard} /> */}
             <NotFound default />
         </Router>
