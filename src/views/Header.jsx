@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import TemporaryDrawer from './Menu';
 
 export default function Header() {
@@ -12,10 +13,10 @@ export default function Header() {
       <AppBar position="static">
         <Toolbar>
           <TemporaryDrawer />
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1, textAlign: 'center' }}>
+            Well informed
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Button color="inherit"><AccountCircleIcon /></Button>
         </Toolbar>
       </AppBar>
     </Box>
