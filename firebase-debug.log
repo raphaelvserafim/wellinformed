@@ -1,0 +1,49 @@
+[debug] [2023-03-17T17:17:11.626Z] ----------------------------------------------------------------------
+[debug] [2023-03-17T17:17:11.627Z] Command:       /Users/raphael/.nvm/versions/node/v16.19.1/bin/node /Users/raphael/.nvm/versions/node/v16.19.1/bin/firebase init database
+[debug] [2023-03-17T17:17:11.627Z] CLI Version:   11.24.1
+[debug] [2023-03-17T17:17:11.627Z] Platform:      darwin
+[debug] [2023-03-17T17:17:11.627Z] Node Version:  v16.19.1
+[debug] [2023-03-17T17:17:11.627Z] Time:          Fri Mar 17 2023 13:17:11 GMT-0400 (Eastern Daylight Time)
+[debug] [2023-03-17T17:17:11.628Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-03-17T17:17:11.660Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-03-17T17:17:11.660Z] > authorizing via signed-in user (raphaelvserafim@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/raphael/Documents/Job/Me/wellinformed/wellinformed
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2023-03-17T17:17:11.663Z] Using project from CLI flag: wellinformed-c154b
+[debug] [2023-03-17T17:17:11.665Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/wellinformed-c154b [none]
+[debug] [2023-03-17T17:17:12.007Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/wellinformed-c154b 200
+[debug] [2023-03-17T17:17:12.007Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/wellinformed-c154b {"projectId":"wellinformed-c154b","projectNumber":"704142061898","displayName":"wellinformed","name":"projects/wellinformed-c154b","resources":{"hostingSite":"wellinformed-c154b"},"state":"ACTIVE","etag":"1_56764c03-e865-4294-9364-ecae4cbf57bc"}
+[info] i  Using project wellinformed-c154b (wellinformed) 
+[info] 
+=== Database Setup
+[info] i  database: ensuring required API firebasedatabase.googleapis.com is enabled... 
+[debug] [2023-03-17T17:17:12.017Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/wellinformed-c154b/services/firebasedatabase.googleapis.com [none]
+[debug] [2023-03-17T17:17:12.017Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/wellinformed-c154b/services/firebasedatabase.googleapis.com x-goog-quota-user=projects/wellinformed-c154b
+[debug] [2023-03-17T17:17:12.435Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/wellinformed-c154b/services/firebasedatabase.googleapis.com 200
+[debug] [2023-03-17T17:17:12.436Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/wellinformed-c154b/services/firebasedatabase.googleapis.com [omitted]
+[warn] ⚠  database: missing required API firebasedatabase.googleapis.com. Enabling now... 
+[debug] [2023-03-17T17:17:12.438Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/wellinformed-c154b/services/firebasedatabase.googleapis.com:enable [none]
+[debug] [2023-03-17T17:17:12.438Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/wellinformed-c154b/services/firebasedatabase.googleapis.com:enable x-goog-quota-user=projects/wellinformed-c154b
+[debug] [2023-03-17T17:17:12.718Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/wellinformed-c154b/services/firebasedatabase.googleapis.com:enable 200
+[debug] [2023-03-17T17:17:12.718Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/wellinformed-c154b/services/firebasedatabase.googleapis.com:enable [omitted]

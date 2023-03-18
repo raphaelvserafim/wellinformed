@@ -5,10 +5,15 @@ import { collection, doc, setDoc, getDocs, where, query } from "firebase/firesto
 import { db } from "../firebase";
 
 
+import CardLoading from "./cardLoading";
+
+
 function News(props) {
+    const [isLoading, setIsLoading] = useState(true);
     const [newsItems, setNewsItems] = useState([]);
+
     useEffect(() => {
-        async function fetchNews() {
+        setTimeout(async () => {
             const dataNews = [];
             const q = query(collection(db, "News"), where("main", "==", true));
             const news = await getDocs(q);
@@ -16,18 +21,29 @@ function News(props) {
                 dataNews.push({ id: doc.id, data: doc.data() });
             });
             setNewsItems(dataNews);
-        }
-        fetchNews();
-    }, []);
+            setIsLoading(false);
+        }, 2000);
+
+    }, [newsItems]);
+
 
     return (
         <Box sx={{ mb: 2 }}>
             <div style={{ height: '20px' }} />
-            {newsItems.map((item, index) => (
-                <ReviewCard news={{ item }} />
-            ))}
+            {isLoading ? (
+                <>
+                    <CardLoading />
+                    <CardLoading />
+                    <CardLoading />
+                </>
+            ) : (
+                newsItems.map((item, index) => (
+                    <ReviewCard key={index} news={item} />
+                ))
+            )}
         </Box>
     );
+
 }
 
 export default News;

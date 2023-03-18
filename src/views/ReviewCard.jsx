@@ -30,38 +30,41 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 }));
 
 export default function ReviewCard(props) {
-    console.log("props", props)
 
-    const [expanded, setExpanded] = React.useState(false);
+    if (props) {
+        console.log("props", props)
 
-    const handleExpandClick = () => {
-        setExpanded(!expanded);
+        const [expanded, setExpanded] = React.useState(false);
+
+        const handleExpandClick = () => {
+            setExpanded(!expanded);
+        }
+
+        return (
+            <Card sx={{ mb: 2 }}>
+                <CardHeader avatar={<Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">R</Avatar>}
+                    action={<IconButton aria-label="settings"> <MoreVertIcon /> </IconButton>}
+                    title={props.news.item.data.author}
+                    subheader={props.news.item.data.posted}
+                />
+                <CardMedia component="img" height="194" image={props.news.item.data.img} alt={props.news.item.data.title} />
+                <CardContent>
+                    <Typography variant="body2" color="text.secondary">{props.news.item.data.description}</Typography>
+                </CardContent>
+                <CardActions disableSpacing>
+                    <IconButton aria-label="share">
+                        <ShareIcon />
+                    </IconButton>
+                    <ExpandMore
+                        expand={expanded}
+                        onClick={handleExpandClick}
+                        aria-expanded={expanded}
+                        aria-label="show more"
+                    >
+                        <ExpandMoreIcon />
+                    </ExpandMore>
+                </CardActions>
+            </Card>
+        );
     }
-
-    return (
-        <Card sx={{ mb: 2 }}>
-            <CardHeader avatar={<Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">R</Avatar>}
-                action={<IconButton aria-label="settings"> <MoreVertIcon /> </IconButton>}
-                title={props.news.item.data.author}
-                subheader={props.news.item.data.posted}
-            />
-            <CardMedia component="img" height="194" image={props.news.item.data.img} alt={props.news.item.data.title} />
-            <CardContent>
-                <Typography variant="body2" color="text.secondary">{props.news.item.data.description}</Typography>
-            </CardContent>
-            <CardActions disableSpacing>
-                <IconButton aria-label="share">
-                    <ShareIcon />
-                </IconButton>
-                <ExpandMore
-                    expand={expanded}
-                    onClick={handleExpandClick}
-                    aria-expanded={expanded}
-                    aria-label="show more"
-                >
-                    <ExpandMoreIcon />
-                </ExpandMore>
-            </CardActions>
-        </Card>
-    );
 }
